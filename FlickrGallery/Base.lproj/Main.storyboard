@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gYn-Cw-TJW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Flickr Gallery-->
+        <scene sceneID="wiK-TC-FBm">
+            <objects>
+                <collectionViewController storyboardIdentifier="FlickrGalleryBorad" id="e2w-NH-hss" customClass="FlickrGalleryCollectionViewController" customModule="FlickrGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bog-cJ-1jr">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B7h-Eg-zHk">
+                            <size key="itemSize" width="179" height="133"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="F8L-Ok-hga">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="flickrGalleryCell" id="J0z-pI-Wg9" customClass="FlickrGalleryCollectionViewCell" customModule="FlickrGallery" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="179" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="179" height="133"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flickrPlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="15K-rh-wbU">
+                                            <rect key="frame" x="0.0" y="0.0" width="179" height="133"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="15K-rh-wbU" firstAttribute="top" secondItem="J0z-pI-Wg9" secondAttribute="top" id="1bs-W8-Jvr"/>
+                                    <constraint firstAttribute="bottom" secondItem="15K-rh-wbU" secondAttribute="bottom" id="TTd-27-ah3"/>
+                                    <constraint firstAttribute="trailing" secondItem="15K-rh-wbU" secondAttribute="trailing" id="cjn-hN-9Iu"/>
+                                    <constraint firstItem="15K-rh-wbU" firstAttribute="leading" secondItem="J0z-pI-Wg9" secondAttribute="leading" id="yCZ-gv-R77"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="flickrGalleryImageView" destination="15K-rh-wbU" id="zY1-AC-Dkw"/>
+                                    <segue destination="eXt-UH-K8g" kind="show" identifier="flickrDetailSegue" id="F35-hh-9ch"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="e2w-NH-hss" id="bgV-Bv-ePg"/>
+                            <outlet property="delegate" destination="e2w-NH-hss" id="FrN-By-7r6"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Flickr Gallery" id="oMu-bL-GFV"/>
+                    <connections>
+                        <outlet property="activityIndicatory" destination="F8L-Ok-hga" id="Ot5-XV-e64"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vF9-cE-iDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="439.19999999999999" y="-30.134932533733135"/>
+        </scene>
+        <!--Flickr Image-->
+        <scene sceneID="2rD-mo-UUj">
+            <objects>
+                <viewController storyboardIdentifier="FlickrGalleryDetail" title="Flickr Image" id="eXt-UH-K8g" customClass="FlickrGalleryDetailViewController" customModule="FlickrGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TjW-n6-QfZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zsU-X0-1NA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8ZK-49-uCN">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flickrPlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="bUC-kR-WRk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bUC-kR-WRk" firstAttribute="bottom" secondItem="zsU-X0-1NA" secondAttribute="top" id="6kA-d1-Qdt"/>
+                            <constraint firstItem="bUC-kR-WRk" firstAttribute="leading" secondItem="8ZK-49-uCN" secondAttribute="leading" id="GeJ-mn-KpU"/>
+                            <constraint firstItem="bUC-kR-WRk" firstAttribute="top" secondItem="TjW-n6-QfZ" secondAttribute="bottom" id="gro-rt-1If"/>
+                            <constraint firstAttribute="trailing" secondItem="bUC-kR-WRk" secondAttribute="trailing" id="h7f-pu-rtj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="flickrGalleryDetailImageView" destination="bUC-kR-WRk" id="1TT-qd-6xl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Asv-Bc-PL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1364" y="-36.431784107946029"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SuD-dy-TW8">
+            <objects>
+                <navigationController storyboardIdentifier="FlickrGalleryNav" automaticallyAdjustsScrollViewInsets="NO" id="gYn-Cw-TJW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" translucent="NO" id="8wD-0y-eJQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="e2w-NH-hss" kind="relationship" relationship="rootViewController" id="iEL-50-OgE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nr4-6u-gJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-500" y="-30.134932533733135"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="flickrPlaceholderImage" width="512" height="512"/>
+    </resources>
+</document>
